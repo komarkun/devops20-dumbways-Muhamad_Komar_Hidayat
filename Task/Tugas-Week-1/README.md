@@ -20,13 +20,17 @@ Spesifikasi IP Privat:
 
 - Menggunakan Class type C / default subnet mask (255.255.255.0) artinya hanya angka 0 saja atau blok ke 4 yg bisa di isi oleh angka ip sesuai keinginan kita dari range 0 - 254 keknya, sisanya yg angka 255 dari blok 1 sampai 3 angkanya sudah ditentukan, bisa oleh router atau provider ISP nya.
 
-```html
-Spesifikasi IP Privat: 1. Class Type C / Default subnet mask (255.255.255.0)
+```
+Spesifikasi IP Privat:
+1. Class Type C / Default subnet mask (255.255.255.0)
 artinya hanya angka 0 saja atau blok ke 4 yg bisa di isi oleh angka ip sesuai
-keinginan kita 2.Maksimal Host per network 254 jumlah total host yg bisa di
-gunakan terbatas cuma 254 3. slash Notation /24 Contoh: Defauld Route :
-192.168.0.1 (class type C (255.255.255.0)) IPv4 Address : 192.168.0.200 (angka
-200 bisa di ganti apapun asal dalam range 0 - 254)
+keinginan kita
+2.Maksimal Host per network 254 jumlah total host yg bisa di
+gunakan terbatas cuma 254
+3. slash Notation /24
+Contoh: Defauld Route :
+192.168.0.1 (class type C (255.255.255.0))
+IPv4 Address : 192.168.0.200 (angka 200 bisa di ganti apapun asal dalam range 0 - 254)
 ```
 
-![alt IP_Privat](https://drive.google.com/file/d/1Zsb-MYm_S8aGsa1lpPBO0zFmd07xySqv/view)
+![Alt text](./images/IP_privat.png "Title")
