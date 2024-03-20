@@ -26,6 +26,7 @@ artinya hanya angka 0 saja atau blok ke 4 yg bisa di isi oleh angka ip sesuai
 keinginan kita 2.Maksimal Host per network 254 jumlah total host yg bisa di
 gunakan terbatas cuma 254 3. slash Notation /24 Contoh: Defauld Route :
 192.168.0.1 (class type C (255.255.255.0)) IPv4 Address : 192.168.0.200 (angka
-200 bisa di ganti apapun asal dalam range 0 - 254) ![alt
-text](https://drive.google.com/file/d/1Zsb-MYm_S8aGsa1lpPBO0zFmd07xySqv/view)
+200 bisa di ganti apapun asal dalam range 0 - 254)
 ```
+
+![alt IP_Privat](https://drive.google.com/file/d/1Zsb-MYm_S8aGsa1lpPBO0zFmd07xySqv/view)
