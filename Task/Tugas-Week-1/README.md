@@ -64,7 +64,7 @@ contoh:
 
 2. Penjelasan Virtualization
 
-Virtualization adalah metode untuk memvirtualkan atau menanpilkan sesuatu misalnya saja virtual machine adalah proses memvirtualkan atau menampil kan sebuah machine. machine disini memiliki artia bisa saja sebuah alat atau operating system secara lengkap dan utuh. contoh memvirtualkan operasi linux, windows dll menggunakan aplikasi bisa virtialbox bisa juga vmware atau bisa juga dengan cloud platflorm seperti aws EC2 untuk membuat dan menampilkan virtual machine atau google cloude platform (compute engine) yg berfungsi sama seperti aws EC2 tapi dari google aja gitu.
+Virtualization adalah metode untuk memvirtualkan atau menanpilkan sesuatu misalnya saja virtual machine yang artinya proses memvirtualkan atau menampil kan sebuah machine. machine disini memiliki artia bisa saja sebuah alat atau operating system secara lengkap dan utuh. contoh memvirtualkan operasi linux, windows dll menggunakan aplikasi bisa virtialbox bisa juga vmware atau bisa juga dengan cloud platflorm seperti aws EC2 untuk membuat dan menampilkan virtual machine atau google cloude platform (compute engine) yg berfungsi sama seperti aws EC2 tapi dari google aja gitu.
 
 contoh virtualization (virtual machine) di Local pakai VirtualBox
 ![Alt text](./images/virtualboox-VM.png "virtual machine")
