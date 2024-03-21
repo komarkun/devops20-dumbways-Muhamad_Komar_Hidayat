@@ -1,12 +1,6 @@
-# Tugas devops Dumbways Week 1
+## 1. Perbedaan antara IP Private & Public, serta IP Dynamic & Static!
 
-## Task :
-
-1. Perbedaan antara IP Private & Public, serta IP Dynamic & Static!
-2. Buat penjelasan singkat tentang Virtualization!
-3. Buat rancangan sebuah jaringan dengan spesifikasi sebagai berikut! - CIDR Block : 192.168.1.xxx/24 - Subnet : 255.255.255.0 - Gateway : 192.168.1.1
-   (Gunakan app.diagrams.net untuk membuat diagramnya, Referensi gambar sudah disertakan)
-4. Buat step-by-step untuk menginstall Virutal Machine via VMware, Virtualbox atau VM pilihan kalian!
+## 2. Buat penjelasan singkat tentang Virtualization!
 
 ## Jawaban :
 
@@ -72,42 +66,62 @@ contoh virtualization (virtual machine) di Local pakai VirtualBox
 contoh virtualization (virtual machine) di cloud pakai google cloud
 ![Alt text](./images/google-cloud-vm.png "virtual machine")
 
-3. Rancangan Jaringan
+## Tugas pas g-meet
 
-Contoh EXample Rancangan jaringan di rumah saya INI gat tau benar atau enggak, karena kebenaran hanya milik ALLAH SWT
+### cari perbedaan linux bukan ubuntu aja tapi yang lainnya
 
-![Alt text](./images/Diagram%20jaringan.drawio.png "rancangan jaringan")
+Package Behavior:
 
-4. step by step install virtual machine di virtual box
+    Ubuntu:
+        Menawarkan paket .deb yang mudah diinstal dan dihapus.
+        Memiliki repositori software resmi yang luas dengan banyak pilihan aplikasi.
+        Dukungan untuk PPA (Personal Package Archives) untuk menginstal software yang tidak tersedia di repositori resmi.
+    Distribusi Lain:
+        Beragam format paket, seperti .rpm, .tar.gz, dan AppImage.
+        Repositori software yang bervariasi, beberapa mungkin lebih kecil atau kurang terawat.
+        Dukungan untuk PPA mungkin tidak tersedia.
 
-- Install dulu aplikasi virtual box nya di official resme oracle virtual box
+2. Filosofi dan Komunitas:
 
-![Alt text](./images/step0.png "rancangan jaringan")
+   Ubuntu:
+   Berfokus pada kemudahan penggunaan dan aksesibilitas bagi pengguna baru.
+   Memiliki komunitas yang besar dan aktif dengan banyak dokumentasi dan dukungan online.
+   Didukung oleh Canonical, perusahaan yang menyediakan infrastruktur dan pengembangan.
+   Distribusi Lain:
+   Memiliki filosofi dan fokus yang beragam, seperti stabilitas, keamanan, minimalisme, atau privasi.
+   Komunitas yang bervariasi dalam ukuran dan keaktifan.
+   Dukungan bisa datang dari komunitas, yayasan, atau perusahaan.
 
-- Create New virtual machine state (Ubuntuserver)
-  ![Alt text](./images/step1.png "rancangan jaringan")
+3. Pilihan Desktop Environment:
 
-* Buat Username and password buat di virtual boxnya
-  ![Alt text](./images/step2.png "rancangan jaringan")
-* Atur jumlah memory ram dan prosesor
-  ![Alt text](./images/step3.png "rancangan jaringan")
-* Tentukan jumlah Virtual storage
-  ![Alt text](./images/step4.png "rancangan jaringan")
-* Check kembali sebelum mulai
-  ![Alt text](./images/step5.png "rancangan jaringan")
-* Setting Network adaptor pilih yang brige connection karena mau di set static IP
-  ![Alt text](./images/step6.png "rancangan jaringan")
-* run virtual machine dan pilih bahasa
-  ![Alt text](./images/step7.png "rancangan jaringan")
-* pilih keyboard layout dan configuration
-  ![Alt text](./images/step8.png "rancangan jaringan")
-* pilih type install
-  ![Alt text](./images/step9.png "rancangan jaringan")
-* Atur IPV4 NETWORK supaya static dan pilih manual
-  ![Alt text](./images/step10.png "rancangan jaringan")
-* Check network connection
-  ![Alt text](./images/step11.png "rancangan jaringan")
-* atur storage ilang ssan nya partisi ext4 "/" 15 gb, partisi "swap" 5gb
+   Ubuntu:
+   GNOME sebagai desktop environment default.
+   Pilihan untuk menginstal desktop environment lain seperti KDE Plasma, Xfce, dan LXDE.
+   Distribusi Lain:
+   Menawarkan desktop environment default yang bervariasi, seperti KDE Plasma, Xfce, LXDE, Cinnamon, dan Budgie.
+   Pilihan desktop environment yang lebih beragam untuk diinstal.
 
-* FINAL Hasil
-  ![Alt text](./images/step12.png "rancangan jaringan")
+4. Software Default:
+
+   Ubuntu:
+   Menyertakan software default untuk berbagai kebutuhan, seperti LibreOffice, Firefox, Thunderbird, dan GIMP.
+   Pilihan software default yang lebih konservatif.
+   Distribusi Lain:
+   Software default yang bervariasi tergantung pada fokus dan filosofi distribusi.
+   Pilihan software default yang lebih beragam dan terfokus.
+
+5. Tingkat Kustomisasi:
+
+   Ubuntu:
+   Menawarkan kemudahan kustomisasi melalui GUI dan alat konfigurasi.
+   Pengalaman yang lebih terarah dan terkontrol.
+   Distribusi Lain:
+   Menawarkan tingkat kustomisasi yang lebih tinggi dengan akses ke konfigurasi tingkat lanjut.
+   Pengalaman yang lebih fleksibel dan terbuka bagi pengguna yang berpengalaman.
+
+Faktor yang Menyebabkan Perbedaan:
+
+- Filosofi dan fokus distribusi: Setiap distribusi memiliki tujuan dan target penggunanya sendiri.
+- Komunitas dan sumber daya: Ukuran dan keaktifan komunitas memengaruhi pengembangan dan dukungan.
+- Ketersediaan software: Distribusi yang lebih besar memiliki akses ke lebih banyak software dan repositori.
+- Pilihan pengembang: Pengembang memilih software default dan fitur yang akan disertakan.
