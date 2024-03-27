@@ -48,28 +48,12 @@ Stream Editor adalah alat yang kuat untuk mengubah teks dalam aliran data. Ini b
 sed 's/old_text/new_text/g' nama_file.txt
 ```
 
-- awk:
-
-Sebuah bahasa pemrograman yang kuat digunakan untuk memanipulasi data dan teks secara umum. Ini sering digunakan untuk memformat data, mengekstraksi informasi, dan melakukan pemrosesan teks lanjutan. Contoh:
-
-```
-awk '{print $1}' nama_file.txt
-```
-
 - cut:
 
 Digunakan untuk memotong bagian-bagian tertentu dari setiap baris dari suatu file teks. Contoh:
 
 ```
 cut -d',' -f1 nama_file.csv
-```
-
-- tr:
-
-Digunakan untuk mentransformasi atau memodifikasi teks, seperti mengganti karakter atau menghapusnya. Contoh:
-
-```
-echo "Hello" | tr '[:lower:]' '[:upper:]'
 ```
 
 - sort:
