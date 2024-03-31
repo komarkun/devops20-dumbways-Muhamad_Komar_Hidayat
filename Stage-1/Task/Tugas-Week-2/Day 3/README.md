@@ -107,3 +107,13 @@ git merge feature_branch
 ```bash
 git log
 ```
+
+# GOD LEVEL
+
+![Alt text](../images/git1.png "img")
+
+![Alt text](../images/git2.png "img")
+
+![Alt text](../images/git3.png "img")
+
+![Alt text](../images/git4.png "img")
