@@ -184,4 +184,8 @@ Scrennshot:
 
 ![Alt text](./images/example-api2.png "img")
 
+![Alt text](./images/api-collection1.png "img")
+
+![Alt text](./images/api-collection2.png "img")
+
 ![Alt text](./images/output.png "img")
