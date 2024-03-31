@@ -158,8 +158,8 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.nvm/nvm.sh
 #
 # # Install Node.js LTS version using nvm
-# nvm install --lts
-#
+nvm install --lts
+
 # # Display versions
 echo "Nginx Version:"
 nginx -v
