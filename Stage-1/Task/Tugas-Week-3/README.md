@@ -76,4 +76,38 @@ Dalam beberapa kasus, aplikasi monolit dapat menjadi lebih efisien dalam hal kin
 
 Karena setiap layanan berdiri sendiri, ada overhead tambahan dalam komunikasi antar layanan, yang dapat mempengaruhi kinerja secara keseluruhan. Namun, dengan skalabilitas yang tepat, ini bisa diatasi.
 
-## 2. Deploy aplikasi WaysHub
+## 2. Deploy aplikasi WaysHub frontend only
+
+### Step By Step
+
+## clone repository from github pastinya
+
+![Alt text](./images/1%20clone-repository-on-github.png "img")
+
+![Alt text](./images/2%20yarn-install.png "img")
+
+![Alt text](./images/3%20run-app-using-yarn.png "img")
+
+![Alt text](./images/4%20add-rules-firewall-on-redhat.png "img")
+
+![Alt text](./images/4.a.png "img")
+
+![Alt text](./images/4.b.png "img")
+
+![Alt text](./images/4.c.png "img")
+
+![Alt text](./images/5%20open-in%20broser.png "img")
+
+![Alt text](./images/5.a.png "img")
+
+## 3. Deploy Golang and python
+
+## pake pm2 mantapp djiwaa
+
+![Alt text](./images/no3a.png "img")
+
+![Alt text](./images/no3b.png "img")
+
+![Alt text](./images/no3c.png "img")
+
+![Alt text](./images/no3d.png "img")
