@@ -41,3 +41,31 @@ Load balancing adalah teknik distribusi lalu lintas di antara beberapa server ba
 ![Alt text](./images/web-server.png "img")
 
 ## 4. Implementasi load balancing
+
+### SET UP 2 VM (Ubuntu Server X Redhat Server)
+
+![Alt text](./images/4.load-balancing-a.png "img")
+
+## Configurasi nginx
+
+![Alt text](./images/4.load-balancing-b.png "img")
+
+![Alt text](./images/4.load-balancing-c.png "img")
+
+## Use case 1 (ubuntu mati redhat hidup) = Masih bisa nyala
+
+![Alt text](./images/4.load-balancing-d.png "img")
+
+![Alt text](./images/4.load-balancing-e.png "img")
+
+## Use case 2 (ubuntu hidup redhat hidup) = masih bisa nyala
+
+![Alt text](./images/4.load-balancing-f.png "img")
+
+![Alt text](./images/4.load-balancing-g.png "img")
+
+## Use case 3 (ubuntu hidup redhat hidup) = Bagus lah ada 2 server yang jalan
+
+![Alt text](./images/4.load-balancing-h.png "img")
+
+## Use case 4 (ubuntu mati redhat mati) = Wassalamualaikum Wr.Wb
