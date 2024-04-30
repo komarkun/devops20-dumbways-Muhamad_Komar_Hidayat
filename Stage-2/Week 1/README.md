@@ -18,7 +18,7 @@ Tasks :
 - Generate SSL untuk reverse proxy kalian.
 - Happy Explore :)
 
-## Jawaban
+## Jawaban Task 1
 
 ### Langkah-langkah pembuatan VM di BiznetGio
 
@@ -120,5 +120,82 @@ running pm2 (aplikasi wayshub kita)
 ![Alt text](./images/pm2-ecosystem-start.png "img")
 
 untuk menguji aplikasi running bisa pergi ke web browser lalu masukan ipaddress:port contoh 192.168.1.1:3000
+
+![Alt text](./images/dumbflix.png "img")
+
+## Jawaban Task 2
+
+### Install nginx
+
+installasi nginx dan juga cerbot serta install juga python3-certbot-nginx
+
+```bash
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install -y nginx certbot python3-cerbot-nginx
+```
+
+![Alt text](./images/installation-nginx-certbot-python3_certbot.png "img")
+
+### Buatlah reverse proxy dan gunakan domain dengan nama kalian (ex. komar.studentdumbways.my.id)
+
+check dulu di browser nginx nya
+
+![Alt text](./images/check-nginx-inbrowser.png "img")
+
+set up dulu cloudflare dns record nya di web cloudflare dan tambahkan dns record dan isi data ipv4 nya dengan ip address dari virtual machine nya
+
+![Alt text](./images/crate-record-cloudflare-point-to-ip_vm.png "img")
+
+untuk membuat file reverse proxy saya biasanya menghapus dulu configurasi default dari si nginx nya ini
+
+![Alt text](./images/delete-default-config-nginx.png "img")
+
+setelah di delete kita tinggal buat baru saja file nginx configurasinya, saya biasanya membuat file configurasi di /etc/nginx/site-available/komar.studentdumbways.my.id dan file tersebut kita link dengan perintah sudo "ln -s" ke bagian /etc/nginx.site-enable/
+
+```bash
+sudo ln -s /etc/nginx/site-available /etc/nginx/site-enable
+```
+
+![Alt text](./images/edit-new-nginx.png "img")
+
+ini adalah konfigurasi simple di nginx nya
+
+![Alt text](./images/edit-new-nginx-inside-vim.png "img")
+
+lalu setelah itu kita bisa cek dulu configurasi nginx nya dengan perintah "sudo nginx -t"
+
+![Alt text](./images/check-config-nginx-succes_nginx-t.png "img")
+
+setelah itu kita bisa check aplikasi kita di browser tapi ini langsung pakai nama domain kitanya aja tapi ini masih http belum https
+
+![Alt text](./images/dumbflix.png "img")
+
+### Installation Certbot
+
+saya menggunakan cara saya sendiri untuk installasi dan configurasi certbot nya. cara ini saya dapat waktu saya magang dan di ajari oleh senior saya.
+
+1. setelah install nginx kita wajib install juga certbot dan sebuah package lain yang bernama python3-certbot-nginx
+
+```bash
+sudo apt-get update; sudo apt-get -y upgrade
+
+sudo apt-get install certbot
+
+sudo apt-get install python3-certbot-nginx
+```
+
+![Alt text](./images/installation-nginx-certbot-python3_certbot.png "img")
+
+2. setelah selesai di install certbot dan nginx configurasinya juga sudah kita konfigurasi seperti di atas kita bisa mengaktifkan ssl sertifikat kita dengan perintah
+
+```bash
+sudo certbot --nginx -d "komar.studentdumbways.my.id"
+```
+
+![Alt text](./images/enable-sudo-certbot-command.png "img")
+
+![Alt text](./images/enable-sudo-certbot-command-success.png "img")
+
+kalau sudah sukses bisa langsung aja cek di browser dan nanti website kita akan berubah jadi https dan ssl sertificate untuk apliskasi web kita akan terpasang dan provider nya adalah lestencript
 
 ![Alt text](./images/dumbflix.png "img")
