@@ -95,7 +95,7 @@ setelah itu kita bisa uji coba login pakai ssh di manapun (host machine yang sud
 
 Siapkan dulu semua tools yang di butuhkan untuk menjalankan aplikasi, karena ini adalah aplikasi react JS maka wajib di install adalah NVM, Node JS, NPM, dan pm2
 
-install dulu node version managernya (NVM)
+install dulu node version managernya (NVM) setelah selesai lalkukan perintah "exec bash"
 ![Alt text](./images/installation-nvm.png "img")
 
 Setelah itu kita bisa install node JS dan NPM yg diinginkan dengan NVM
@@ -198,4 +198,4 @@ sudo certbot --nginx -d "komar.studentdumbways.my.id"
 
 kalau sudah sukses bisa langsung aja cek di browser dan nanti website kita akan berubah jadi https dan ssl sertificate untuk apliskasi web kita akan terpasang dan provider nya adalah lestencript
 
-![Alt text](./images/dumbflix.png "img")
+![Alt text](./images/dumbflix.pngf "img")
