@@ -42,3 +42,83 @@ Tasks :
 5. Tunggu sampai selasai lalu periksa vm yg sudah di buat di menu dashboard nanti ada list VM yg sudah di buat nya.
 
 ![Alt text](./images/biznet-neo3.png "img")
+
+### Membuat user baru lalu implementasikan penggunaan ssh-key pada server
+
+1. Connect dulu ke VM nya pakai ssh key yg sudah di daftarkan di biznet gionya atau bisa lewat openconsole supaya bisa langsung masuk ke vm
+
+```bash
+ssh -i ~/.ssh/biznet komar@192.168.1.1
+```
+
+![Alt text](./images/vm-login-with-Makefile.png "img")
+
+opsi lain, saya biasa pakai Makefile di host machine saya. konfigurasinya
+
+```Makefile
+biznet:
+   @ssh -i ~/.ssh/biznet komar@192.168.1.1
+```
+
+untuk running nya di bash shell kita tinggal masukan perintah "make biznet" supaya dia nanti login ke ssh, jadi kita tidak perlu panjang2 menulis di terminal, cukup define sekali aja di Makefile nanti bisa simple dalam memanggilnya.
+
+2. setelah masuk ke vm nya kita langsung bisa membuat user
+
+```bash
+# command untuk menambah user
+sudo adduser komarkun
+
+# command untuk menambahkan sudo (super user do)
+sudo usermod -aG sudo komar
+
+# command untuk switch user
+su - komar
+```
+
+![Alt text](./images/sudo-adduser.png "img")
+![Alt text](./images/sudo-usermod.png "img")
+![Alt text](./images/change-user.png "img")
+
+3. untuk implementasi ssh-key nya bisa banyak cara, cara yg menurut saya paling simple adalah dengan mencopy public key yang sudah kita buat di host machine atau di manapun lalu copy isi file nya tersebut ke authorize key yang ada di user yg mau kita ssh (~/.ssh/authorized_keys) bisa pake vim atau nano habis itu di save
+
+![Alt text](./images/vim-ke-authorize-key.png "img")
+
+ubah juga permission file nya pakai chmod 400 authorize_keys
+
+![Alt text](./images/chmod-permission-authorize-key.png "img")
+
+setelah itu kita bisa uji coba login pakai ssh di manapun (host machine yang sudah ada privat key "ssh-keygen")
+
+![Alt text](./images/uji-coba-ssh-pakai-user-baru.png "img")
+
+### Deploy aplikasi Dumbflix-Frontend menggunakan nodejs versi 14.x
+
+Siapkan dulu semua tools yang di butuhkan untuk menjalankan aplikasi, karena ini adalah aplikasi react JS maka wajib di install adalah NVM, Node JS, NPM, dan pm2
+
+install dulu node version managernya (NVM)
+![Alt text](./images/installation-nvm.png "img")
+
+Setelah itu kita bisa install node JS dan NPM yg diinginkan dengan NVM
+![Alt text](./images/installation-nvm-for-node14.png "img")
+
+setelah itu install pm2 dengan NPM supaya kita bisa running di background dan bisa di monitoring juga
+
+![Alt text](./images/installation-pm2-succes.png "img")
+
+### Clone repository Dumbflix-frontend lalu deploy aplikasinya menggunakan PM2
+
+setelah semua tools siap kita bisa mulai cloning aplikasinya dari github repositorinya ke vm kita dengan perintah git clone lalu pergi ke direktori tersebut dan lakukan npm install
+
+![Alt text](./images/clone-from-github-dumbflix.png "img")
+
+kita bisa buat file ecosystem dari pm2 untuk merunning aplikasinya di background
+
+![Alt text](./images/pm2-init-ecosystem.png "img")
+
+running pm2 (aplikasi wayshub kita)
+
+![Alt text](./images/pm2-ecosystem-start.png "img")
+
+untuk menguji aplikasi running bisa pergi ke web browser lalu masukan ipaddress:port contoh 192.168.1.1:3000
+
+![Alt text](./images/dumbflix.png "img")
