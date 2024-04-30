@@ -198,4 +198,4 @@ sudo certbot --nginx -d "komar.studentdumbways.my.id"
 
 kalau sudah sukses bisa langsung aja cek di browser dan nanti website kita akan berubah jadi https dan ssl sertificate untuk apliskasi web kita akan terpasang dan provider nya adalah lestencript
 
-![Alt text](./images/dumbflix.pngf "img")
+![Alt text](./images/dumbflix.png "img")
