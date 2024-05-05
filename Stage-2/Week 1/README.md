@@ -153,7 +153,7 @@ untuk membuat file reverse proxy saya biasanya menghapus dulu configurasi defaul
 setelah di delete kita tinggal buat baru saja file nginx configurasinya, saya biasanya membuat file configurasi di /etc/nginx/site-available/komar.studentdumbways.my.id dan file tersebut kita link dengan perintah sudo "ln -s" ke bagian /etc/nginx.site-enable/
 
 ```bash
-sudo ln -s /etc/nginx/site-available /etc/nginx/site-enable
+sudo ln -s /etc/nginx/site-available/komar.studentdumbways.my.id /etc/nginx/site-enable
 ```
 
 ![Alt text](./images/edit-new-nginx.png "img")
