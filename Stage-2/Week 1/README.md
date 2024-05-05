@@ -203,3 +203,134 @@ kalau sudah sukses bisa langsung aja cek di browser dan nanti website kita akan 
 ![Alt text](./images/dumbflix.png "img")
 
 ![Alt text](./images/certbot-success.png "img")
+
+## Set UP SSL With Nginx Proxy Manager
+
+### Require Tools
+
+```text
+# Containerization Tools
+1. Docker with (docker-compose)
+2. Podman with (podman-compose)
+```
+
+### Instalasi
+
+docker-compose.yaml
+
+```yaml
+version: "3.8"
+
+secrets:
+  # Secrets are single-line text files where the sole content is the secret
+  # Paths in this example assume that secrets are kept in local folder called ".secrets"
+  DB_ROOT_PWD:
+    file: .secrets/db_root_pwd.txt
+  MYSQL_PWD:
+    file: .secrets/mysql_pwd.txt
+
+services:
+  app:
+    image: "docker.io/jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    ports:
+      # Public HTTP Port:
+      - "80:80"
+      # Public HTTPS Port:
+      - "443:443"
+      # Admin Web Port:
+      - "81:81"
+    environment:
+      # These are the settings to access your db
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      # DB_MYSQL_PASSWORD: "npm"  # use secret instead
+      DB_MYSQL_PASSWORD__FILE: /run/secrets/MYSQL_PWD
+      DB_MYSQL_NAME: "npm"
+      # If you would rather use Sqlite, remove all DB_MYSQL_* lines above
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+    secrets:
+      - MYSQL_PWD
+    depends_on:
+      - db
+
+  db:
+    image: docker.io/jc21/mariadb-aria
+    restart: unless-stopped
+    environment:
+      # MYSQL_ROOT_PASSWORD: "npm"  # use secret instead
+      MYSQL_ROOT_PASSWORD__FILE: /run/secrets/DB_ROOT_PWD
+      MYSQL_DATABASE: "npm"
+      MYSQL_USER: "npm"
+      # MYSQL_PASSWORD: "npm"  # use secret instead
+      MYSQL_PASSWORD__FILE: /run/secrets/MYSQL_PWD
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    secrets:
+      - DB_ROOT_PWD
+      - MYSQL_PWD
+```
+
+Running Container Aplication
+
+```bash
+# with docker
+sudo docker-compose up -d
+
+# with podman
+podman-compose up -d
+```
+
+```note
+# Docker Official run on daemon in root sudo (wajib) | unofficial package sudo (tidak wajib)
+# Docker lebih berat
+
+# Podman run on daemonless tidak perlu pakai root
+# podman lebih cepat
+# podman lebih aman (secure)
+```
+
+Check Running container
+
+```bash
+# with docker
+sudo docker ps
+
+# with podman
+podman ps
+```
+
+![Alt text](./images/nginx-proxy-manager-checknginx1.png "img")
+
+![Alt text](./images/nginx-proxy-manager-checknginx2.png "img")
+
+Login to admin UI | localhost:81 | ipaddress:81
+![Alt text](./images/nginx-proxy-manager-login.png "img")
+
+```text
+Email       : admin@example.com
+Password : changeme
+```
+
+Dashboard UI
+![Alt text](./images/nginx-proxy-manager-dashboard.png "img")
+
+![Alt text](./images/nginx-proxy-manager-dashboardUI.png "img")
+
+![Alt text](./images/nginx-proxy-manager-dashboardCreate.png "img")
+
+Create SSL UI
+![Alt text](./images/nginx-proxy-manager-SSL-UI.png "img")
+
+![Alt text](./images/nginx-proxy-manager-CreateSSL.png "img")
+
+Create Reverse Proxy in Proxy Hosts UI
+![Alt text](./images/nginx-proxy-manager-proxyhosts.png "img")
+
+![Alt text](./images/dumbflix.png "img")
