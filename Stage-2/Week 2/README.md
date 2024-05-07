@@ -302,3 +302,28 @@ kalau success kita bisa cek di database datanya tersimpan atau tidak
 ![Alt text](./images/backend-img/2.png "img")
 ![Alt text](./images/backend-img/3.png "img")
 ![Alt text](./images/backend-img/4.png "img")
+
+## CARA BIASA TAMPA CONTAINER DEFAULT RUNNING BACKEND APLIKASI STANDAR
+
+```bash
+# install dependencie
+npm i
+
+# install sequelize
+npm i sequelize-cli
+
+# change config file
+
+# cp .env.example .env
+
+# run migration
+npx sequelize db:migrate
+
+# run aplication in pm2 ecosystem
+pm2 init simple
+pm2 start ecosystem.config.js
+```
+
+![Alt text](./images/backend-img/cara-biasa1.png "img")
+![Alt text](./images/backend-img/cara-biasa2.png "img")
+![Alt text](./images/backend-img/cara-biasa3.png "img")
