@@ -160,4 +160,145 @@ untuk remote ke database kita karena kita sudah atur konfigurasi dari mysql nya 
 tinggal masukan saja server host, username, password, port dan nama database nya
 ![Alt text](./images/database-img/mysql-dbaver-success-login.png "img")
 
-## Deploy aplikasi Wayshub-Backend
+## Deploy aplikasi Dumbflix-Backend
+
+Untuk Mendeploy aplikasi Dumbflix-backend di VM yang ke 2 saya menggunakan docker container karena saya pengen mengimplementasikan NGINX PROXY MANAGER juga buar routing reserve proxy serta SSL sertificate juga agar koneksi aplikasi bisa jadi HTTPS dan lebih secure serta sangat enak karena menggunakan GUI.
+
+script installation Docker & docker compose "docker-install.sh".
+
+```sh
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+jalan kan di terminal script tersubut agar bisa menggunakan docker dan docker-compose
+
+```bash
+# command run script as sudo
+sudo sh docker-install.sh
+
+# check docker version
+sudo docker --version
+
+# check docker-compose version
+sudo docker-compose --version
+```
+
+### Set up NGINX PROXY MANAGER
+
+configurasi container NGINX PROXY MANAGER, pakai docker-compose.yaml
+
+```yaml
+version: "3.8"
+services:
+  app:
+    image: "docker.io/jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+```
+
+Jalankan container nya:
+
+```bash
+sudo docker-compose up -d
+```
+
+Periksa aplikasi nginx proxy managernya dan buat ssl sertificate serta buat proxy host
+
+![Alt text](./images/backend-img/nginx-proxy-manager-ssl.png "img")
+
+![Alt text](./images/backend-img/nginx-proxy-manager-hosts.png "img")
+
+Setelah container ngixn proxy manager di setup, kita tinggal setup container untuk aplikasi dumbflix backend nya
+
+### Clone wayshub backend application
+
+kita cllone dulu aplikasi dumbflix backend nya.
+![Alt text](./images/backend-img/clone-dumbflix-backend.png "img")
+
+change configuration on `wayshub-backend/config/   config.json` and then adjust it to your database.
+
+![Alt text](./images/backend-img/edit-configurasi-.envnya.png "img")
+
+setelah itu kita buat Dockerfile langsung buat setup container aplikasi backendnya. isi dari docker file nya adalah :
+
+```
+FROM node:14
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+RUN npm i sequelize-cli
+
+COPY . .
+
+RUN npx sequelize db:migrate
+
+EXPOSE 5000
+
+CMD [ "node", "server.js" ]
+```
+
+setelah itu kita bisa mengeksekusi docker file nya dan membuat images dengan perintah:
+
+```bash
+sudo docker build -t docker.io/komarkun/dumbflix_backend .
+```
+
+jalankan container nya dengan images yang sudah di buat dengan perintah:
+
+```bash
+sudo docker run -d -p 5000:5000 --name dumbflix-backend docker.io/komarkun/dumbflix_backend
+```
+
+cek container berjalan :
+
+```bash
+sudo docker ps
+```
+
+![Alt text](./images/backend-img/docker-build&run-dumbflix-backend.png "img")
+
+setelah kontainer berjalan buat proxy hosts nya supaya aplikasi backend kita berjalan di https pakai nginx proxy manager dan adjust si ssl nya.
+![Alt text](./images/backend-img/nginx-proxy-manager-hosts.png "img")
+
+di VM 1 tempat dumbflix frontend di setup Change url for dumbflix-backend in src/config/api.js supaya di pointing ke dns backend nya. case saya api.komar.studentdumbways.my.id
+
+jalankan aplikasi dumbfilx front end nya, karena sudah terhubung ke backned dan database kita bisa register, kalo berhasil artinya bagus successssss
+![Alt text](./images/backend-img/register-di-frontend.png "img")
+
+kalau success kita bisa cek di database datanya tersimpan atau tidak
+![Alt text](./images/backend-img/cek-register-dbeaver.png "img")
+
+![Alt text](./images/backend-img/1.png "img")
+![Alt text](./images/backend-img/2.png "img")
+![Alt text](./images/backend-img/3.png "img")
+![Alt text](./images/backend-img/4.png "img")
