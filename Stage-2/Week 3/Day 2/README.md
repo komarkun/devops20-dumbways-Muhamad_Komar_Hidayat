@@ -1,4 +1,4 @@
-# Tugas devops Dumbways Mandiri Project Week 3 Stage 2
+# Tugas devops Dumbways Week 3 Stage 2
 
 ## DAY 2 CI/CD with Jenkins
 
