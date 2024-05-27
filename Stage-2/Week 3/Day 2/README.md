@@ -62,7 +62,7 @@ Saat pertama kali install kita pilih yang suggested plugin dan kita buat admin b
 
 ### Setup SSH-KEY di local server jenkins kalian, agar dapat login ke dalam server menggunakan SSH-KEY
 
-![Alt text](https://media.discordapp.net/attachments/1242113758919131197/1242114574476640337/9.png?ex=664ca8d7&is=664b5757&hm=60919db81e6a1c2543230af2921d7e2116d9b727fb6f1cc6d058aa3a99c0f467&=&format=webp&quality=lossless&width=1179&height=663)
+![Alt text](./images/1.%20atur%20ssh%20key%20pairs.png)
 
 setelah kita generate ssh keys, kita wajib menambahkan publik keys di authorized_keys, dengan perintah:
 
@@ -72,7 +72,7 @@ echo id_rsa.pub >> authorize_keys
 
 simpan Private keys nya di jenkin credential
 
-![Alt text](https://media.discordapp.net/attachments/1242113758919131197/1242114574023524392/10.png?ex=664ca8d7&is=664b5757&hm=f415543004a651d7cb7368cc23051624efaa6889cc2e60a87b86a4abcebee242&=&format=webp&quality=lossless&width=1179&height=663)
+![Alt text](./images/2.%20atur%20credentials.png)
 
 ### Reverse Proxy Jenkins
 
@@ -161,7 +161,7 @@ domain ex. pipeline-team1.studentdumbways.my.id
 
 untuk membuat job kita wajib push repository ke github lalu kita masukan ke bagian jenkins job, pilih yang pipeline
 
-![Alt text](https://media.discordapp.net/attachments/1242113758919131197/1242114664972681236/13.png?ex=664ca8ed&is=664b576d&hm=abd365434f86ae4f2d3fc052cd368584b6fe5ee0e97df605cd35d4b90b02dd68&=&format=webp&quality=lossless&width=1179&height=663)
+![Alt text](./images/3.%20buat%20pipeline.png)
 
 contoh pipeline sederhana:
 
@@ -345,29 +345,29 @@ pipeline {
 
 ```
 
-![Alt text](https://media.discordapp.net/attachments/1242113758919131197/1242114663521587350/15.png?ex=664ca8ed&is=664b576d&hm=d618a4d4f3abf5899b0379e134592012b88293659ab7e5bdfbe22eaa9f01fb9c&=&format=webp&quality=lossless&width=1179&height=663)
+![Alt text](./images/4.%20contoh%20pipeline.png)
 
 ### Penjelasan pipeline
 
 Pull dari repository github
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242137982283284573/image.png?ex=664cbea4&is=664b6d24&hm=35e9e5a4d2e855aeb73841005d04373076ca66a42355c0731591b1b6ffb9f7ee&)
+![Alt text](./images/5.%20pull%20new%20code.png)
 
 Dockerize/Build aplikasi kita
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242138199946690721/image.png?ex=664cbed8&is=664b6d58&hm=7ba70f1e925d44a7f7252133d7ef20679d3778422d9e8443377405dbe1d74700&)
+![Alt text](./images/6.%20build%20new%20code.png)
 
 Test application
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242138499981905940/image.png?ex=664cbf20&is=664b6da0&hm=71b93a30f9171fbc8d9430b7103749552b407cc860bdc7a24a00d76f96b9a58a&)
+![Alt text](./images/7.%20testcode%20.png)
 
 Deploy aplikasi on top Docker
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242138831386443896/image.png?ex=664cbf6f&is=664b6def&hm=3b50cfca67c982e712b55c29378478dc036d799488395a4e8c1b8225ca02b3f4&)
+![Alt text](./images/8.%20deploy%20new%20code.png)
 
 Push ke Docker Hub
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242139099855454208/image.png?ex=664cbfaf&is=664b6e2f&hm=d7f8403dcd30ff7696bfd1f906e97b8f610362503c6e94d585fc830f4a304c70&)
+![Alt text](./images/9.%20push%20docker%20hub.png)
 
 ### Auto trigger setiap ada perubahan di SCM
 
 untuk membuat auto trigger kita wajib menambahkan url jenkins ke github repository kita di menu webhooks
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242139465292714074/image.png?ex=664cc006&is=664b6e86&hm=a801ff854bf6607f39eb5bb4a7d169a2a2e0fab8081510981548c2a2a05f756d&)
+![Alt text](./images/10.%20webhook%20trigger.png)
 
 ### Buat job notification ke discord
 
@@ -391,7 +391,7 @@ stage('Test Notifier') {
         }
 ```
 
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242114777161924648/23.png?ex=664ca908&is=664b5788&hm=b52049371dff6d7761fd179aa7b40cd641bc8649f9013c815819629d89f6efef&)
+![Alt text](./images/11.%20wasyhub%20backedn%20pipeline.png)
 
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242114776725979206/24.png?ex=664ca908&is=664b5788&hm=b9a68918882f9eb5fb38225494f0711666c95dd1c937a49dad21a62efcb29995&)
-![Alt text](https://cdn.discordapp.com/attachments/1242113758919131197/1242114777581486181/22.png?ex=664ca908&is=664b5788&hm=e5e4cc38f02552be84c5069128d218865912d72ce1f8dd7debbd9218f87e4b30&)
+![Alt text](./images/12.%20notif%201.png)
+![Alt text](./images/13.%20notif%202.png)
