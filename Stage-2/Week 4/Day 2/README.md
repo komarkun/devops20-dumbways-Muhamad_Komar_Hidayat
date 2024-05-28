@@ -194,4 +194,26 @@ rumus diatas adalah rumus untuk menghitung persentase dari jumlah memory yang di
 
 ### Allerting grafana
 
+untuk membuat allerting di grafana kita tinggal masuk saja ke menu alrerting, dan buat folder alert rules.
+
+![alt text](./images/12.%20allerting%20menu.png)
+
+isi data allerting sesuai dengan kebutuhan dan keinginan kita, misal disini kita buat alert untuk cpu dan juga memorynya, kita masukan rumus promql yg sama dengan yg di dashboard lalu kita buat rules dengan memasukan tresshold nya juga
+
+![alt text](./images/13.%20allert%20rule.png)
+
+jangan lupa kita buat juga contact poinnya untuk, dalam hal ini saya menggunakan webhook url dari discord untuk notifikasinya.
+![alt text](./images/14.%20contack%20point.png)
+
+setelah itu jangan lupa untuk mengubah juga notification policy nya juga supaya bsia aktif notifnya.
+
+![alt text](./images/15.%20notification%20policy.png)
+
+setelah semua alert kita setup harus nya nanti akan muncul alert nya jika sudah memenuhi syaratnya, seperti contoh.
+![alt text](./images/16.%20notification%20success.png)
+
+bisa juga di custom seperti ini biar lebih singkat lagi
+
+![alt text](./images/17.%20custom%20nnotifikasinya.png)
+
 ### Monitoring container Cadvisor
