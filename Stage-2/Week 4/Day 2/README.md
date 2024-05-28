@@ -217,3 +217,19 @@ bisa juga di custom seperti ini biar lebih singkat lagi
 ![alt text](./images/17.%20custom%20nnotifikasinya.png)
 
 ### Monitoring container Cadvisor
+
+untuk memonitoring container dengan menggunakan Cadvisor kitabisa langsung saja menambah kan ke service kita si program Cadvisor tersebut.
+
+![alt text](./images/18.%20Cadvisor%20docker-compose.png)
+
+lalu tinggal kita jalankan ulang docker compose nya dengan perintah, docker compose restart dan jangan lupa juga di tambahkan di prometheus.yml nya juga konfigurasinya
+![alt text](./images/19.%20Cadvisor%20prometheus%20yaml.png)
+
+setelah semua tersetup kita bisa cek ke browser dulu untuk melihat apakah Cadvisornya berjalan atau tidak
+![alt text](./images/20.%20cadvisor%20broser.png)
+
+setelah berjalan cek juga di prometheus web nya
+![alt text](./images/21.%20cadvisor%20prometheus.png)
+
+setelah itu kita langsung bisa membuat dashboardnya seperti membuat dashboard pada umumnya khalayak ramai
+![alt text](./images/22.%20final.png)
