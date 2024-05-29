@@ -1,4 +1,4 @@
-# Tugas Devops dumbways Week 4 day 3 Ansible & Ansible playbook
+# Tugas Devops dumbways Week 3 day 3 Ansible & Ansible playbook
 
 [Local]
 Buat konfigurasi Ansible & sebisa mungkin maksimalkan penggunaan ansbile untuk melakukan semua setup dan se freestyle kalian
