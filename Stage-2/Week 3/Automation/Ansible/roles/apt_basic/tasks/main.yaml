@@ -3,11 +3,13 @@
     update_cache: yes
   tags:
     - update
+
 - name: Upgrade semua apt package jika ada
   ansible.builtin.apt:
     upgrade: dist
   tags:
     - upgrade
+
 - name: Install build-essential package biar mantap
   ansible.builtin.apt:
     name: "{{ essential_package }}"

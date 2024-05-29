@@ -1,6 +1,7 @@
 - name: Update apt package wajib
   apt:
     update_cache: yes
+
 - name: Install dependensy yg diperlukan
   apt:
     name:
@@ -9,17 +10,21 @@
       - curl
       - software-properties-common
     state: present
+
 - name: Tambahkan docker gpg key wajib satu kali saja
   apt_key:
     url: "{{ docker_gpg_key_url }}"
     state: present
+
 - name: Tambahkan docker repository
   apt_repository:
     repo: "{{ docker_repo }}"
     state: present
+
 - name: Update apt repository
   apt:
     update_cache: yes
+
 - name: Install Docker dan semua repository nya
   apt:
     name:

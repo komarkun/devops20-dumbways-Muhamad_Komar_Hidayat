@@ -4,31 +4,35 @@
     password: "{{ new_user_password }}"
     state: present
   become: true
+
 - name: Tambah user ke sudo group
   ansible.builtin.user:
     name: "{{ new_user }}"
     groups: sudo
     append: yes
   become: true
+
 - name: Tambah user ke docker group
   ansible.builtin.user:
     name: "{{ new_user }}"
     groups: docker
     append: yes
   become: true
+
 - name: Buat .ssh directory
   ansible.builtin.file:
     path: "/home/{{ new_user }}/.ssh"
     state: directory
     owner: "{{ new_user }}"
     group: "{{ new_user }}"
-    mode: '0700'
+    mode: "0700"
   become: true
+
 - name: Copy SSH public key ke authorized_keys
   ansible.builtin.copy:
     src: "{{ ssh_key_file }}"
     dest: "/home/{{ new_user }}/.ssh/authorized_keys"
     owner: "{{ new_user }}"
     group: "{{ new_user }}"
-    mode: '0600'
+    mode: "0600"
   become: true

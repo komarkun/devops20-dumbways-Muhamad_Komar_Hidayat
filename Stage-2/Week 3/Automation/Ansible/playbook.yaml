@@ -2,26 +2,27 @@
   hosts: googlevm
   become: true
   roles:
-    - {role: apt_basic, tags: 'apt_basic_semua'}
-    - {role: monitoring_install, tags: 'monitoring_install_semua'}
-    - {role: node_exporter, tags: 'user_create_semua'}
-    - {role: docker_install, tags: 'docker_install_semua'}
-    - {role: frontend_install, tags: 'frontend_install_semua'}
+    - { role: apt_basic, tags: "apt_basic_semua" }
+    - { role: monitoring_install, tags: "monitoring_install_semua" }
+    - { role: node_exporter, tags: "user_create_semua" }
+    - { role: docker_install, tags: "docker_install_semua" }
+    - { role: frontend_install, tags: "frontend_install_semua" }
+
 - name: Playbook roles untuk server2 gateway
   hosts: server2
   become: true
   roles:
-    - {role: docker_install, tags: 'docker_install_server2'}
-    - {role: frontend_install, tags: 'frontend_install_server2'}
-    - {role: monitoring_install_godsways, tags: 'monitoring_install_server2'}
+    - { role: docker_install, tags: "docker_install_server2" }
+    - { role: frontend_install, tags: "frontend_install_server2" }
+    - { role: monitoring_install_godsways, tags: "monitoring_install_server2" }
+
 - name: Playbook roles untuk server 1 appserver
   hosts: server1
   become: true
   roles:
-    - {role: docker_install, tags: 'docker_install_server1'}
-    - {role: frontend_install, tags: 'frontend_install_server1'}
-    - {role: monitoring_install_godsways, tags: 'monitoring_install_server1'}
-    - {role: node_exporter, tags: 'node_exporter_bin_server1'}
-
+    - { role: docker_install, tags: "docker_install_server1" }
+    - { role: frontend_install, tags: "frontend_install_server1" }
+    - { role: monitoring_install_godsways, tags: "monitoring_install_server1" }
+    - { role: node_exporter, tags: "node_exporter_bin_server1" }
 # Cara untuk merunning command
-# ansible-playbook playbook.yaml --tags "apt_basic" 
+# ansible-playbook playbook.yaml --tags "apt_basic"

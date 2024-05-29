@@ -2,17 +2,20 @@
   community.docker.docker_volume:
     name: "{{ item }}"
   loop: "{{ volumes.keys() }}"
+
 - name: Copy Prometheus yaml ke the server
   ansible.builtin.copy:
     src: "prometheus.yml"
     dest: "/home/komarhidayat0/prometheus"
     owner: "komarhidayat0"
     group: "komarhidayat0"
+
 - name: Pull Docker images
   community.docker.docker_image:
     name: "{{ item.name }}"
     source: pull
   loop: "{{ docker_images }}"
+
 - name: Run Docker containers
   community.docker.docker_container:
     name: "{{ item.container_name }}"
@@ -21,5 +24,6 @@
     restart_policy: "{{ item.restart_policy }}"
     ports: "{{ item.ports | default(omit) }}"
     volumes: "{{ item.volumes | default(omit) }}"
+
   loop: "{{ docker_images }}"
   notify: Start Docker containers
