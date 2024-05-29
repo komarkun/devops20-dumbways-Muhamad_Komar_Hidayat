@@ -26,3 +26,4 @@
     - { role: node_exporter, tags: "node_exporter_bin_server1" }
 # Cara untuk merunning command
 # ansible-playbook playbook.yaml --tags "apt_basic"
+# bisa untuk satu server atau banyak server sekaligus
