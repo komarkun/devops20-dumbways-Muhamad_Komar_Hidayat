@@ -1,8 +1,0 @@
-# dijalankan untuk semua user dan cukup 1 kali saja
-- name: Install docker apt_basic dan buat user di dua server
-  hosts: googlevm
-  become: true
-  roles:
-    - apt_basic
-    - docker_install
-    - users_create

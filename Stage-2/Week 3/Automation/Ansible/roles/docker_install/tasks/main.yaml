@@ -31,4 +31,3 @@
     state: present
   notify:
     - Restart Docker
-    - Start Docker

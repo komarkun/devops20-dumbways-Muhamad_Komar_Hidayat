@@ -1,4 +1,12 @@
-- name: Running all wayshub-frontend-prod
-  shell: docker pull komarkun/wayshub-frontend-prod:latest
-- name: run the container
-  shell: docker run -d -p 3005:80 --name wayshub-frontend-prod komarkun/wayshub-frontend-prod:latest
+- name: Pull Docker image from registry
+  community.docker.docker_image:
+    name: "{{ docker_image }}"
+    source: pull
+- name: Run docker container
+  community.docker.docker_container:
+    name: "{{ docker_container_name }}"
+    image: "{{ docker_image }}"
+    state: started
+    restart_policy: "{{ docker_restart_policy }}"
+    ports: "{{ docker_ports }}"
+  notify: Restart Docker

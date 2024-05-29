@@ -1,6 +1,0 @@
-# di jalankan untuk satu user (appserver) dan cukup satu kali
-- name: Install monitoring server grafana dan prometheus dan node exporter pakai docker
-  hosts: server2
-  become: true
-  roles:
-    - monitoring_install

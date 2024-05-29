@@ -1,0 +1,5 @@
+- name: Start Docker containers
+  community.docker.docker_container:
+    name: "{{ item.container_name }}"
+    state: restarted
+  loop: "{{ docker_images }}"

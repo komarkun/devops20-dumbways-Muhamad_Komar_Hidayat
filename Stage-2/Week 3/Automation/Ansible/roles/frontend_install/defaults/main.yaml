@@ -1,0 +1,5 @@
+docker_image: komarkun/wayshub-frontend-prod:latest
+docker_container_name: wayshub-frontend-prod
+docker_restart_policy: unless-stopped
+docker_ports:
+  - '3333:80'
