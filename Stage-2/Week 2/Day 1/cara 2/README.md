@@ -1,4 +1,4 @@
-# Tugas devops Dumbways Mandiri Project Week 3 Stage 2 (Cara 2)
+# Tugas devops Dumbways Mandiri Project Week 2 Stage 2 (Cara 2)
 
 ## DAY 1 Docker & Docker Compose
 

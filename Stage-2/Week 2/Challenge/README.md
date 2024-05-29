@@ -1,4 +1,4 @@
-### Challenge Week3 Gitlab Runner on self hosted Machine
+### Challenge Week2 Gitlab Runner on self hosted Machine
 
 untuk melakukan implementasi gitlab runner di projek CI/CD kita, hal pertama yang perlu dilakukan adalah menginstall gitlab runner nya di server yang mau kita jadikan selfhosted oleh si gitlab nya. dan kita wajib melihat ke dokumentasi resmi untuk installasi tersebut.
 

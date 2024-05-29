@@ -1,4 +1,4 @@
-# Tugas devops Dumbways Project Week 3 Stage 2 (Cara 1)
+# Tugas devops Dumbways Project Week 2 Stage 2 (Cara 1)
 
 ## DAY 1 Docker & Docker Compose
 

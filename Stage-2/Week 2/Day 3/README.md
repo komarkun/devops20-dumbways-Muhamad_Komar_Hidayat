@@ -1,4 +1,4 @@
-# Tugas devops Dumbways Week 3 Stage 2
+# Tugas devops Dumbways Week 2 Stage 2
 
 ## DAY 3 CI/CD with Gitlab
 
