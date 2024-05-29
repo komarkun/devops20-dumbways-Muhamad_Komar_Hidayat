@@ -1,0 +1,6 @@
+# di jalankan untuk satu user (gateway) dan cukup satu kali
+- name: Install node exporter saja buat uji coba aja
+  hosts: server2
+  become: true
+  roles:
+    - node_exporter

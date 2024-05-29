@@ -1,0 +1,8 @@
+docker_compose_file: docker-compose.yaml
+docker_compose_dest: /home/komarhidayat0/monitoring
+prometheus_file: prometheus.yml
+prometheus_dest: /home/komarhidayat0/monitoring/prometheus
+monitoring_owner: komarhidayat0
+monitoring_group: komarhidayat0
+docker_compose_file_mode: '700'
+prometheus_file_mode: '700'

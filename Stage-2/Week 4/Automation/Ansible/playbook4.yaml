@@ -1,0 +1,6 @@
+# di jalankan untuk satu user (gateway) dan cukup satu kali
+- name: Uji coba install container front end
+  hosts: server2
+  become: true
+  roles:
+    - frontend_install

@@ -1,0 +1,4 @@
+- name: Running all wayshub-frontend-prod
+  shell: docker pull komarkun/wayshub-frontend-prod:latest
+- name: run the container
+  shell: docker run -d -p 3005:80 --name wayshub-frontend-prod komarkun/wayshub-frontend-prod:latest

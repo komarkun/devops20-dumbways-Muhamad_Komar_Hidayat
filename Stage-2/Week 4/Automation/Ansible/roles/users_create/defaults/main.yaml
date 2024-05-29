@@ -1,0 +1,3 @@
+new_user: komardumbways
+new_user_password: "{{ 'komarganteng' | password_hash('sha512') }}"
+ssh_key_file: id_rsa.pub

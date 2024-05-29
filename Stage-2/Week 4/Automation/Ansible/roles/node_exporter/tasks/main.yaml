@@ -1,0 +1,30 @@
+- name: Copy node_exporter binary ke the server
+  ansible.builtin.copy:
+    src: "{{ node_exporter_binary_file }}"
+    dest: "{{ node_exporter_binary_dest }}"
+    owner: "{{ node_exporter_owner }}"
+    group: "{{ node_exporter_group }}"
+    mode: "{{ node_exporter_binary_mode }}"
+- name: Copy node_exporter ke systemd service file
+  ansible.builtin.copy:
+    src: "{{ node_exporter_service_file }}"
+    dest: "{{ node_exporter_service_dest }}"
+    owner: "{{ node_exporter_owner }}"
+    group: "{{ node_exporter_group }}"
+    mode: "{{ node_exporter_service_mode }}"
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: yes
+- name: Enable node_exporter service
+  ansible.builtin.systemd:
+    name: node_exporter
+    enabled: yes
+- name: Start node_exporter service
+  ansible.builtin.systemd:
+    name: node_exporter
+    state: started
+- name: Check node_exporter service is running
+  ansible.builtin.systemd:
+    name: node_exporter
+    state: started
+    enabled: yes

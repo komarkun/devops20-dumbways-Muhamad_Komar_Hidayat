@@ -1,0 +1,8 @@
+node_exporter_binary_file: node_exporter
+node_exporter_binary_dest: /usr/local/bin/node_exporter
+node_exporter_service_file: node_exporter.service
+node_exporter_service_dest: /etc/systemd/system/node_exporter.service
+node_exporter_owner: komarhidayat0
+node_exporter_group: komarhidayat0
+node_exporter_binary_mode: '700'
+node_exporter_service_mode: '700'

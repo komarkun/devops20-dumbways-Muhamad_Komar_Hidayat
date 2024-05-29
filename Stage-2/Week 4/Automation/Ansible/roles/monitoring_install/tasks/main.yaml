@@ -1,0 +1,31 @@
+- name: Create directory monitoring
+  ansible.builtin.file:
+    path: "{{ docker_compose_dest }}"
+    state: directory
+    owner: "{{ monitoring_owner }}"
+    group: "{{ monitoring_group }}"
+    mode: '0700'
+- name: Create directory monitoring for prometheus
+  ansible.builtin.file:
+    path: "{{ prometheus_dest }}"
+    state: directory
+    owner: "{{ monitoring_owner }}"
+    group: "{{ monitoring_group }}"
+    mode: '0700'
+- name: Copy docker_compose_file ke the server
+  ansible.builtin.copy:
+    src: "{{ docker_compose_file }}"
+    dest: "{{ docker_compose_dest }}"
+    owner: "{{ monitoring_owner }}"
+    group: "{{ monitoring_group }}"
+- name: Copy prometheus yaml
+  ansible.builtin.copy:
+    src: "{{ prometheus_file }}"
+    dest: "{{ prometheus_dest }}"
+    owner: "{{ monitoring_owner }}"
+    group: "{{ monitoring_group }}"
+- name: go to the docker compose file
+  shell: cd /home/komarhidayat0/monitoring/ && docker compose up -d
+
+# - name: run the docker compose file
+#   shell: docker compose up -d

@@ -1,0 +1,9 @@
+- name: Restart Docker
+  service:
+    name: docker
+    state: restarted
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
