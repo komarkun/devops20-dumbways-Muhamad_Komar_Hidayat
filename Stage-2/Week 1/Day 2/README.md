@@ -1,4 +1,4 @@
-# Tugas devops Dumbways Week 2 Stage 2
+# Tugas devops Dumbways Week 1 Stage 2
 
 Repository :
 [Dumbflix Backend](https://github.com/dumbwaysdev/dumbflix-backend)
